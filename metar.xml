@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<iwxxm:observation xmlns:ns1="http://www.opengis.net/gml/3.2" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns:ns3="http://schemas.wmo.int/iwxxm/2.1" xmlns:ns4="http://www.aixm.aero/schema/5.1.1" xmlns:ns5="http://www.isotc211.org/2005/gco" xmlns:ns6="http://www.isotc211.org/2005/gmd" xmlns:ns7="http://www.isotc211.org/2005/gts" xmlns:ns8="http://www.opengis.net/om/2.0" cloudAndVisibilityOK="false">
+    <ns3:airTemperature uom="hPa">1018.0</ns3:airTemperature>
+    <ns3:dewpointTemperature uom="hPa">1018.0</ns3:dewpointTemperature>
+    <ns3:qnh uom="hPa">1018.0</ns3:qnh>
+    <ns3:surfaceWind>
+        <ns3:AerodromeSurfaceWind variableWindDirection="false">
+            <ns3:meanWindDirection uom="deg">240.0</ns3:meanWindDirection>
+            <ns3:meanWindSpeed uom="m/s">4.0</ns3:meanWindSpeed>
+        </ns3:AerodromeSurfaceWind>
+    </ns3:surfaceWind>
+    <ns3:visibility>
+        <ns3:AerodromeHorizontalVisibility>
+            <ns3:prevailingVisibility uom="m">600.0</ns3:prevailingVisibility>
+        </ns3:AerodromeHorizontalVisibility>
+    </ns3:visibility>
+    <ns3:rvr>
+        <ns3:AerodromeRunwayVisualRange>
+            <ns3:meanRVR uom="m">100.0</ns3:meanRVR>
+        </ns3:AerodromeRunwayVisualRange>
+    </ns3:rvr>
+    <ns3:presentWeather ns2:href="DZ"/>
+    <iwxxm:cloud>
+        <ns3:AerodromeObservedClouds>
+            <ns3:layer>
+                <ns3:CloudLayer>
+                    <ns3:amount ns2:href="SCT010"/>
+                    <ns3:base uom="[ft_i]">1000.0</ns3:base>
+                </ns3:CloudLayer>
+            </ns3:layer>
+        </ns3:AerodromeObservedClouds>
+    </iwxxm:cloud>
+</iwxxm:observation>
