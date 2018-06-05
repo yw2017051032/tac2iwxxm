@@ -5,7 +5,7 @@ import javax.xml.bind.JAXBException;
 
 import com.iwxxm.generateXmlReport.GenerateXmlReport;
 
-public class Test {
+public class Test1 {
 
 	public static void main(String[] args) throws ParseException, JAXBException {
 		// TODO Auto-generated method stub
@@ -26,7 +26,6 @@ public class Test {
 		
 		//生成的xml文档名称及绝对路径
 		String strFile="E:\\test.xml";
-		String string=null;
 		GenerateXmlReport test1=new GenerateXmlReport(tac1,strFile);
 		test1.generateXmlReport();
 		

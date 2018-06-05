@@ -85,7 +85,7 @@ public class Generate_baseForecast_xml {
 			MeasureType measureType2=tafOb.createMeasureType();
 			measureType2.setValue(Double.parseDouble(map.get("minimumAirTemperature")));
 			measureType2.setUom("Cel");
-	    	airTemperature.setMaximumAirTemperature(measureType2);
+	    	airTemperature.setMinimumAirTemperature(measureType2);
 		}
 		if (map.get("minimumAirTemperatureTime")!=null) { 	
 			TimeInstantPropertyType timeInstantProperty=tafOb.createTimeInstantPropertyType();
@@ -94,7 +94,7 @@ public class Generate_baseForecast_xml {
 			timePosition.getValue().add(map.get("minimumAirTemperatureTime"));
 			timeInstant.setTimePosition(timePosition);
 			timeInstantProperty.setTimeInstant(timeInstant);
-	    	airTemperature.setMaximumAirTemperatureTime(timeInstantProperty);
+	    	airTemperature.setMinimumAirTemperatureTime(timeInstantProperty);
 		}
 		aerodromeAirTemperatureForecastProperty.setAerodromeAirTemperatureForecast(airTemperature);
 		meteorologicalAerodromeForecastRecord.getTemperature().add(aerodromeAirTemperatureForecastProperty);
@@ -120,7 +120,7 @@ public class Generate_baseForecast_xml {
 		}		
 		if (map.get("windGustSpeed")!=null) {
 			SpeedType GustSpeed=tafOb.createSpeedType();
-			GustSpeed.setValue(Double.parseDouble(map.get("GustSpeed")));
+			GustSpeed.setValue(Double.parseDouble(map.get("windGustSpeed")));
 			GustSpeed.setUom("m/s");
 			aerodromeSurfaceWindForecast.setWindGustSpeed(GustSpeed);
 		}		

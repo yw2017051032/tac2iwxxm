@@ -111,7 +111,7 @@ public class Generate_changeForecast_xml {
 					MeasureType measureType2=tafOb.createMeasureType();
 					measureType2.setValue(Double.parseDouble(map.get("minimumAirTemperature")));
 					measureType2.setUom("Cel");
-			    	airTemperature.setMaximumAirTemperature(measureType2);
+			    	airTemperature.setMinimumAirTemperature(measureType2);
 				}
 				if (map.get("minimumAirTemperatureTime")!=null) { 	
 					TimeInstantPropertyType timeInstantProperty=tafOb.createTimeInstantPropertyType();
@@ -120,7 +120,7 @@ public class Generate_changeForecast_xml {
 					timePosition.getValue().add(map.get("minimumAirTemperatureTime"));
 					timeInstant.setTimePosition(timePosition);
 					timeInstantProperty.setTimeInstant(timeInstant);
-			    	airTemperature.setMaximumAirTemperatureTime(timeInstantProperty);
+			    	airTemperature.setMinimumAirTemperatureTime(timeInstantProperty);
 				}
 				aerodromeAirTemperatureForecastProperty.setAerodromeAirTemperatureForecast(airTemperature);
 				meteorologicalAerodromeForecastRecord.getTemperature().add(aerodromeAirTemperatureForecastProperty);
@@ -231,7 +231,7 @@ public class Generate_changeForecast_xml {
 	    			timePosition1.getValue().add(map.get("time"));
 	    			timeInstant1.setTimePosition(timePosition1);
 	        		timeInstantProperty1.setTimeInstant(timeInstant1);
-	        		JAXBElement<TimeInstantType> cElement2=new JAXBElement(new QName("","gml:TimeInstantType"), timeInstantProperty1.getClass(), timeInstantProperty1);
+	        		JAXBElement<TimeInstantType> cElement2=new JAXBElement(new QName("","gml:TimeInstant"), timeInstant1.getClass(), timeInstant1);
 	        		timeObjectProperty1.setAbstractTimeObject(cElement2);
 				}
 	    		
@@ -261,7 +261,7 @@ public class Generate_changeForecast_xml {
 	    		TimePositionType timePosition3=tafOb.createTimePositionType();
 	    		if (map.get("validEndTime")!=null) {
 	    			timePosition2.getValue().add(map.get("validEndTime"));
-	    			timePeriod.setEndPosition(timePosition3);
+	    			timePeriod.setEndPosition(timePosition2);
 	    		}
 	    		timePeriodProperty.setTimePeriod(timePeriod);
 	    		

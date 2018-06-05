@@ -94,7 +94,7 @@ public class Generate_trendForecastPart_xml {
   	  		length.setValue(Double.parseDouble(map.get("prevailingVisibility")));
   	  		length.setUom("m");
   	  		meteorologicalAerodromeTrendForecastRecord.setPrevailingVisibility(length);
-  	  		if (map.get("prevailingVisibility").equals("CAVOK")) {
+  	  		if (map.get("prevailingVisibility").equals("CAVOK")||map.get("prevailingVisibility").equals("9999")) {
   	  		    meteorologicalAerodromeTrendForecastRecord.setCloudAndVisibilityOK(true);
 			} else {
 				meteorologicalAerodromeTrendForecastRecord.setCloudAndVisibilityOK(false);
@@ -198,7 +198,7 @@ public class Generate_trendForecastPart_xml {
 			timePeriod.setEndPosition(timePosition2);
 		}		
 		timePeriodProperty.setTimePeriod(timePeriod);
-		JAXBElement<TimePeriodType> cElement3=new JAXBElement(new QName("","gml:TimePeriod"), timePeriodProperty.getClass(), timePeriodProperty);
+		JAXBElement<TimePeriodType> cElement3=new JAXBElement(new QName("","gml:TimePeriod"), timePeriod.getClass(), timePeriod);
 		timeObjectProperty1.setAbstractTimeObject(cElement3);
 	
 		

@@ -10,6 +10,8 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
 
 import com.iwxxm.common.CodeAirportHeliportDesignatorType;
+import com.iwxxm.metarSpeci.AbstractTimeComplexType;
+import com.iwxxm.metarSpeci.AbstractTimeObjectType;
 import com.iwxxm.metarSpeci.AerodromeHorizontalVisibilityPropertyType;
 import com.iwxxm.metarSpeci.AerodromeHorizontalVisibilityType;
 import com.iwxxm.metarSpeci.AerodromeObservedCloudsPropertyType;
@@ -19,6 +21,8 @@ import com.iwxxm.metarSpeci.AerodromeRunwayVisualRangePropertyType;
 import com.iwxxm.metarSpeci.AerodromeRunwayVisualRangeType;
 import com.iwxxm.metarSpeci.AerodromeSurfaceWindPropertyType;
 import com.iwxxm.metarSpeci.AerodromeSurfaceWindType;
+import com.iwxxm.metarSpeci.AerodromeWindShearPropertyType;
+import com.iwxxm.metarSpeci.AerodromeWindShearType;
 import com.iwxxm.metarSpeci.AirportHeliportTimeSliceType;
 import com.iwxxm.metarSpeci.AirportHeliportType;
 import com.iwxxm.metarSpeci.AngleType;
@@ -37,6 +41,8 @@ import com.iwxxm.metarSpeci.OMObservationType;
 import com.iwxxm.metarSpeci.OMProcessPropertyType;
 import com.iwxxm.metarSpeci.ObjectFactory;
 import com.iwxxm.metarSpeci.ReferenceType;
+import com.iwxxm.metarSpeci.RunwayDirectionPropertyType;
+import com.iwxxm.metarSpeci.RunwayDirectionPropertyType1;
 import com.iwxxm.metarSpeci.SpeedType;
 import com.iwxxm.metarSpeci.TextNameType;
 import com.iwxxm.metarSpeci.TimeInstantPropertyType;
@@ -198,6 +204,21 @@ public class Generate_observationPart_xml {
     		MeteorologicalAerodromeObservationRecord.setCloud(cElement1);
     		
 		}
+        
+        
+        //…Ë÷√AerodromeWindShear
+        AerodromeWindShearPropertyType aerodromeWindShearProperty=metar.createAerodromeWindShearPropertyType();
+        AerodromeWindShearType aerodromeWindShear=metar.createAerodromeWindShearType();
+        RunwayDirectionPropertyType1 runwayDirectionProperty=metar.createRunwayDirectionPropertyType1();
+        if (map.get("allRunways")!=null) {
+        	aerodromeWindShear.setAllRunways(Boolean.valueOf(map.get("allRunways")));
+        	runwayDirectionProperty.setHref(map.get("runway"));
+        	aerodromeWindShear.getRunway();
+        	aerodromeSurfaceWindProperty.setAerodromeSurfaceWind(aerodromeSurfaceWind);
+        	MeteorologicalAerodromeObservationRecord.setWindShear(aerodromeWindShearProperty);
+		}
+        
+        
 		
 	    
 	    
@@ -210,7 +231,7 @@ public class Generate_observationPart_xml {
     			timePosition1.getValue().add(map.get("time"));
     			timeInstant1.setTimePosition(timePosition1);
         		timeInstantProperty1.setTimeInstant(timeInstant1);
-        		JAXBElement<TimeInstantType> cElement2=new JAXBElement(new QName("","gml:TimeInstantType"), timeInstantProperty1.getClass(), timeInstantProperty1);
+        	 	JAXBElement<TimeInstantType> cElement2=new JAXBElement(new QName("","gml:TimeInstant"), timeInstant1.getClass(), timeInstant1);
         		timeObjectProperty1.setAbstractTimeObject(cElement2);
 			}
     		
